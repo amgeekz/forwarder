@@ -24,3 +24,11 @@ android {
         jvmTarget = "17"
     }
 }
+
+
+// Added dependencies to provide Material3 and AppCompat themes and attributes
+dependencies {
+    implementation "androidx.core:core-ktx:1.10.1"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.9.0"
+}
