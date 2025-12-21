@@ -18,9 +18,8 @@
     <!-- ========= APPLICATION ========= -->
     <application
         android:name=".GeekzApp"
+        android:allowBackup="true"
         android:label="Geekz Forwarder"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Material3.Dark"
         android:allowBackup="true"
         android:supportsRtl="true">
