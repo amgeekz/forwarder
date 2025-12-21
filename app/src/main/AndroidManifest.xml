@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.geekz.forwarder">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- ========= PERMISSIONS ========= -->
-    <!-- Internet untuk webhook -->
     <uses-permission android:name="android.permission.INTERNET"/>
-
-    <!-- Foreground service (Android 8+) -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-
-    <!-- Auto start saat boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
-    <!-- (Opsional, tapi aman) -->
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
-    <!-- ========= APPLICATION ========= -->
     <application
         android:name=".GeekzApp"
         android:allowBackup="true"
         android:label="Geekz Forwarder"
         android:theme="@style/Theme.Material3.Dark"
-        android:allowBackup="true"
         android:supportsRtl="true">
 
         <!-- ===== MAIN UI ===== -->
@@ -37,16 +27,14 @@
         <!-- ===== NOTIFICATION LISTENER ===== -->
         <service
             android:name=".NotificationForwarder"
-            android:label="Geekz Notification Listener"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
             android:exported="false">
-
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService"/>
             </intent-filter>
         </service>
 
-        <!-- ===== FOREGROUND SERVICE (ANTI KILL) ===== -->
+        <!-- ===== FOREGROUND SERVICE ===== -->
         <service
             android:name=".ForegroundService"
             android:exported="false"
@@ -57,7 +45,6 @@
             android:name=".BootReceiver"
             android:enabled="true"
             android:exported="false">
-
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
